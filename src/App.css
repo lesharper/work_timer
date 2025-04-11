@@ -1,0 +1,208 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #333; /* Темный текст для контраста */
+  background-color: #FFC1CC; /* Пастельный розовый фон */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  position: relative;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  margin-bottom: 20px;
+
+  & .heart {
+    height: 40px;
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #FF6666; /* Более насыщенный розовый для заголовка */
+  line-height: 40px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  text-align: center;
+  margin-bottom: 30px;
+
+  font-family: monospace;
+
+
+  & .highlight {
+    font-weight: 600;
+
+    color: #FF6666; /* Более насыщенный розовый для заголовка */
+  }
+}
+
+.timer p {
+  font-size: 2em;
+  margin: 10px 0;
+
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #FF9999; /* Пастельный розовый для границы */
+  padding: 0 35px;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #fff; /* Белый текст на кнопках */
+  background-color: #FF9999; /* Пастельный розовый для кнопок */
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.button_icon {
+  height: 25px;
+  object-fit: contain;
+
+  color: #E8A9B4;
+}
+
+button:hover {
+  background-color: #FF8080; /* Чуть ярче при наведении */
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #FF6666; /* Темнее при нажатии */
+  transform: scale(0.95);
+}
+
+button:disabled {
+  background-color: #FFB3B3; /* Очень светлый розовый для отключенных кнопок */
+  border-color: #FFB3B3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Добавляем, чтобы модалка была поверх всего */
+}
+
+.modal {
+  background-color: #E8A9B4;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  background-color: #FF9999;
+  border: 1px solid #FF9999;
+}
+
+.modal-buttons button:hover {
+  background-color: #FF8080;
+}
+
+.modal-buttons button:active {
+  background-color: #FF6666;
+}
+
+.kitty-run {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Установи нужный размер */
+  height: auto;
+  z-index: 100; /* Поверх других элементов */
+  animation: fadeInOut .5s ease-in-out forwards; /* Анимация на 1 секунды */
+}
+
+.kitty-success {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Установи нужный размер */
+  height: auto;
+  z-index: 100; /* Поверх других элементов */
+  animation: fadeInOut 3s ease-in-out forwards; /* Анимация на 3 секунды */
+}
+
+.kitty-no {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Установи нужный размер */
+  height: auto;
+  z-index: 100; /* Поверх других элементов */
+  animation: fadeInOut 3s ease-in-out forwards; /* Анимация на 3 секунды */
+}
+
+.kitty-pause {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 200px; /* Установи нужный размер */
+  height: auto;
+  z-index: 100; /* Поверх других элементов */
+  animation: infinite; /* Анимация на 3 секунды */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1; /* Быстрое появление */
+  }
+  90% {
+    opacity: 1; /* Держим видимость почти до конца */
+  }
+  100% {
+    opacity: 0; /* Плавное исчезновение */
+  }
+}
